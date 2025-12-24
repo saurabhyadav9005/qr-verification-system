@@ -1,0 +1,7 @@
+<div *ngIf="result">
+  <h2 *ngIf="result.valid">✅ Verified</h2>
+  <h2 *ngIf="!result.valid">❌ Invalid</h2>
+
+  <p>Name: {{result.data?.name}}</p>
+  <p>Document: {{result.data?.document_no}}</p>
+</div>

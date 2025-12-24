@@ -1,0 +1,39 @@
+<div class="table-responsive">
+  <table class="table table-bordered table-striped table-hover align-middle">
+    <thead class="table-dark">
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Document No</th>
+        <th>QR Token</th>
+        <th>Status</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let row of records; index as i">
+        <td>{{ i + 1 }}</td>
+        <td>{{ row.name }}</td>
+        <td>{{ row.document_no }}</td>
+        <td class="text-truncate" style="max-width: 200px;">
+          <img
+            [src]="qrImages[row.id]"
+            alt="QR"
+            width="30"
+            height="30"
+          />
+        </td>
+        <td>
+          <span
+            class="badge"
+            [ngClass]="row.is_valid ? 'bg-success' : 'bg-danger'">
+            {{ row.is_valid ? 'Valid' : 'Invalid' }}
+          </span>
+        </td>
+        <td>
+          <button type="button" (click)="delete(row)">delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

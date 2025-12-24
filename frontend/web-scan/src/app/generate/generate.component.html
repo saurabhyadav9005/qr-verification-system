@@ -1,0 +1,23 @@
+<form [formGroup]="mainForm">
+    <div>
+        <input placeholder="Name" formControlName="name">
+    </div>
+    <div>
+        <input placeholder="Document No" formControlName="document_no">
+    </div>
+    <div>
+        <button (click)="generateQR()">Generate QR</button>
+    </div>
+
+    <div>
+        <img *ngIf="qrImage" [src]="qrImage">
+    </div>
+    
+</form>
+<button routerLink="/scan">Scan QR</button>
+
+
+
+
+
+
