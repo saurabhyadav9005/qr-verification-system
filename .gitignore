@@ -1,0 +1,12 @@
+# Node
+node_modules/
+.env
+
+# Angular
+/node_modules
+/dist
+.angular
+/package-lock.json
+
+# Logs
+npm-debug.log*
