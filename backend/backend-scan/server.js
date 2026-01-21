@@ -3,11 +3,19 @@ const express = require('express');
 const cors = require('cors');
 
 const app = express();
+
 app.use(cors());
 app.use(express.json());
 
+// health check
+app.get('/', (req, res) => {
+  res.send('API is running');
+});
+
+// QR routes
 app.use('/api/qr', require('./routes/qr.routes'));
 
-app.listen(process.env.PORT, () => {
-  console.log(`Server running on http://localhost:${process.env.PORT}`);
+const PORT = process.env.PORT  || 3000;;
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
